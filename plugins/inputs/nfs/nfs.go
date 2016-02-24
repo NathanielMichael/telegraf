@@ -63,7 +63,7 @@ func (n *NFS) Gather(acc telegraf.Accumulator) error {
 		re := regexp.MustCompile(`(\w+)\s+(\w+)\s+(\w+)\s+(\w+):\s+(\w+)`)
 		parts := re.FindStringSubmatch(string(line))
 
-		if len(parts) != 6 {
+		if len(parts) != 5 {
 			continue
 		}
 
