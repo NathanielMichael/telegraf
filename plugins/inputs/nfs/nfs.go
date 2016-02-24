@@ -61,9 +61,14 @@ func (n *NFS) Gather(acc telegraf.Accumulator) error {
 	for scanner.Scan() {
 		line := scanner.Text()
 		re := regexp.MustCompile(`(\w+)\s+(\w+)\s+(\w+)\s+(\w+):\s+(\w+)`)
+
+		fmt.Fprintf(os.Stdout, "%s", line)
+
 		parts := re.FindStringSubmatch(string(line))
 
-		if len(parts) != 5 {
+		fmt.Fprintf(os.Stdout, "%s", len(parts))
+
+		if len(parts) != 6 {
 			continue
 		}
 
