@@ -41,7 +41,7 @@ func (n *NFS) Gather(acc telegraf.Accumulator) error {
 		return nil
 	}
 
-	cmdArgs := []string{}
+	cmdArgs := []string{"-l"}
 
 	cmd := exec.Command(n.NFSStatBin, cmdArgs...)
 	var stderr bytes.Buffer
